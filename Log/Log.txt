@@ -1,0 +1,22 @@
+<25.09.10>
+5.
+*Create Plugin : GladiatorCore (GameFeature)
+*GladiatorCore Plugin : Create Experiences, Maps file
+*Create Blueprint : B_Experience_DebbugGame(LyraExperienceDefinition)
+**GameFeaturetoEnable : GladiatorCore //맵 실행시 실행될 플러그인
+**DefaultPawnData : SimplePawnData Setting 
+*Create GameFeatureDataAsset //플러그인 실행시 실행될 게임 기본 룰
+6.
+*Create File : Characters, Characters/Camera, Data
+*Create Data Asset : Data/HeroData_GladiatorGame(LyraPawnData)
+*Create Blueprint : B_Hero_Gladiator(LyraCharacter), CM_Gladiator(LyraCameraModeThirdPerson)
+*Create Vertor Cur : VC_Gladiator(Game/Characters/Cameras/ThirdPersonOffsetCurve.ThirdPersonOffsetCurve')
+**B_Experience_DebbugGame : DefaultPawnData->HeroData_GladiatorGame
+**HeroData_GladiatorGame : Defaualt Camera Mode->CM_Gladiator
+**CM_Gladiator : Target Offset Curve->VC_Gladiator
+**프로젝트 세팅> 에셋매니저> 스캔할 프라이머리 에셋타입 > 인덱스4>특정에셋>추가>B_Experience_DebbugGame
+7.
+*Create InputData_GladiatorHero(LyraInputConfig)
+**InputData_GladiatorHero : Add NativeInputActions Index 
+8.
+Asset 추가 (Player1,Player2,Monster 등등)
