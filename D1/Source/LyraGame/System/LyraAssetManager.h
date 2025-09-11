@@ -11,6 +11,8 @@ class UPrimaryDataAsset;
 
 class ULyraGameData;
 class ULyraPawnData;
+//
+class UD1CharacterData;
 
 struct FLyraBundles
 {
@@ -50,6 +52,8 @@ public:
 
 	const ULyraGameData& GetGameData();
 	const ULyraPawnData* GetDefaultPawnData() const;
+	//
+	const UD1CharacterData& GetCharacterData();
 
 protected:
 	template <typename GameDataClass>
@@ -65,7 +69,7 @@ protected:
 	}
 
 
-	static UObject* SynchronousLoadAsset(const FSoftObjectPath& AssetPath);
+	static UObject* SynchronousLoadAsset(const FSoftObjectPath& AssetPath); //동기방식 로딩
 	static bool ShouldLogAssetLoads();
 
 	// Thread safe way of adding a loaded asset to keep in memory.
@@ -93,6 +97,11 @@ protected:
 	// Pawn data used when spawning player pawns if there isn't one set on the player state.
 	UPROPERTY(Config)
 	TSoftObjectPtr<ULyraPawnData> DefaultPawnData;
+
+	//
+	UPROPERTY(Config)
+	TSoftObjectPtr<UD1CharacterData> CharacterDataPath;
+	
 
 private:
 	// Flushes the StartupJobs array. Processes all startup work.

@@ -4,6 +4,10 @@
 #include "LyraLogChannels.h"
 #include "LyraGameplayTags.h"
 #include "LyraGameData.h"
+//
+#include "Data/D1CharacterData.h"
+
+
 #include "AbilitySystemGlobals.h"
 #include "Character/LyraPawnData.h"
 #include "Misc/App.h"
@@ -12,6 +16,8 @@
 #include "AbilitySystem/LyraGameplayCueManager.h"
 #include "Misc/ScopedSlowTask.h"
 #include "System/LyraAssetManagerStartupJob.h"
+
+
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraAssetManager)
 
@@ -139,6 +145,11 @@ const ULyraGameData& ULyraAssetManager::GetGameData()
 const ULyraPawnData* ULyraAssetManager::GetDefaultPawnData() const
 {
 	return GetAsset(DefaultPawnData);
+}
+
+const UD1CharacterData& ULyraAssetManager::GetCharacterData()
+{
+	return GetOrLoadTypedGameData<UD1CharacterData>(CharacterDataPath);
 }
 
 UPrimaryDataAsset* ULyraAssetManager::LoadGameDataOfClass(TSubclassOf<UPrimaryDataAsset> DataClass, const TSoftObjectPtr<UPrimaryDataAsset>& DataClassPath, FPrimaryAssetType PrimaryAssetType)

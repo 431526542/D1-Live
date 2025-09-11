@@ -20,3 +20,22 @@
 **InputData_GladiatorHero : Add NativeInputActions Index 
 8.
 Asset 추가 (Player1,Player2,Monster 등등)
+<25.09.11>
+9.
+*Create GameData_GladiatorGame(LyraGameData)
+*Data파일내에 Characters>Hero 파일 추가 및 HeroData_GladiatorGame,InputData_GladiatorHero 데이터 파일 Hero안으로 이동
+*파일 이름 변경 : HeroData_GladiatorGame->PawnData_Hero, InputData_GladiatorHero->InputData_Hero
+*System/PawnData경로에 DefaultPawnData(LyraPawnData)생성 후 Defaualt.ini > DefaultPawnData의 경로를 /Game/System/PawnData/DefaultPawnData.DefaultPawnData 처럼 변경 //설정 안하면 실행 안됨
+**GladiatorCore : AssetManager에 데이터 추가>>맵(파일경로),LyraExperienceDefinition(파일경로), LyraUserFaingExperienceDefinition(파일경로),LyraExperienceActionSet(파일경로),LyraGameData(특정에셋)
+10.
+*비쥬얼 스튜디오 실행시 경고가 뜨는 이유 > GladiatorCore>AssetManager>LyraExperienceDefinition>블루피린트 클래스 보유 (ture) 설정 (실제 블루프린트 파일로 보유중 )
+*Source/LyraGame/Data 파일을 만들고 D1CharacterData(UPrimaryDataAsset) 파일 생성, *Source/LyraGame D1Define.h 생성
+**LyraAssetManager.h 및 cpp 파일에 UD1CharacterData파일 가져올 수 있도록 함수 조정
+**DefaualtGame.ini 에 CharacterDataPath추가
+11.
+*Source/LyraGame/Actors라는 폴더를 만들고 D1ArmorBase(Actor)를 만든다.
+*Source/LyraGame/Item/Managers 폴더를 만들고 D1CosmeticManagerComponent(UPawnComponent)를 만든다.
+*GladioatorCore/Blueprints/Equipments > B_Armor_Base(D1ArmorBase) 추가
+*GladioatorCore/Blueprints/Game > B_CosmeticManager_Hero(D1CosmeticManagerComponent) 추가
+**B_CosmeticManager_Hero D1CosmeticManagerComponent->Cosmetic slot Class = B_Armor_Base로 변경
+**GladioatorCore -> Action -> 인덱스 추가 : 컴포넌트 추가 : LyraCharacter / B_CosmeticManager_Hero
