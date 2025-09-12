@@ -39,3 +39,6 @@ Asset 추가 (Player1,Player2,Monster 등등)
 *GladioatorCore/Blueprints/Game > B_CosmeticManager_Hero(D1CosmeticManagerComponent) 추가
 **B_CosmeticManager_Hero D1CosmeticManagerComponent->Cosmetic slot Class = B_Armor_Base로 변경
 **GladioatorCore -> Action -> 인덱스 추가 : 컴포넌트 추가 : LyraCharacter / B_CosmeticManager_Hero
+<25.09.12>
+13~17
+*애니메이션 적용 작업
